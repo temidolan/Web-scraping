@@ -92,6 +92,7 @@ def scrape():
 
 
     # mars_url="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    # mars_link="/Users/kumba/Desktop/1usgs.html"
     # browser.visit(mars_url)
     # html_mars=browser.html
     # soup=bs(html_mars, "html.parser")

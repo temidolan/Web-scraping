@@ -13,7 +13,7 @@ mongo = PyMongo(app)
 @app.route("/")
 def home():
     usgs_dict = mongo.db.usgs_dict.find_one()
-    return render_template("index.html", usgs_json=usgs_dict)
+    return render_template("index.html", usgs=usgs_dict)
 
 
 @app.route("/scrape")
