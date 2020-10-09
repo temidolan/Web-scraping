@@ -18,7 +18,7 @@ def home():
 
 @app.route("/scrape")
 def scraped():
-    usgs_dict = mongo.db.usgs
+    usgs_dict = mongo.db.usgs_dict
     usgs_dict_data = scrape_mars.scrape()
     usgs_dict.update({}, usgs_dict_data, upsert=True)
     return redirect("/", code=302)

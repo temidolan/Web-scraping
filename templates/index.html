@@ -2,30 +2,79 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hot Finds</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to the planet Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
-  <div class="container">
+    <div class="container">
 
-    <div class="jumbotron text-center">
-      <h1>Hot Finds On Craigslist</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Find An Awesome Deal!</a></p>
+        <div class="jumbotron text-center border-bottom">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Mars Data</a></p>
+        </div>
+
+
+        <div class="row" id="mars_scrape">
+            <div class="col-md-12">
+                <h2><u>Latest Mars News Article</u></h2>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="heading">{{usgs.news_title}}</h4>
+                <p>{{usgs.news_p}}</p>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div class="row">
+                <div class="col-md-8 border">
+                    <h2 class=""><u>Featured Martian Image</u></h2>
+                    </br>
+                    <img src="{{mars.Featured_Image}}" alt="Mars Featured Image">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h4><b>Mars Facts</b></h4>
+                                <p>{{mars.Mars_Facts | safe}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-8 offest-4">
+                <h2 class="align-items-center"><u>Mars Hemispheres</u></h2>
+            </div>
+        </div>
+        </br>
+        <div class="row" style="margin-tp: 80px;">
+            <div class="page-header">
+                <h2 class="text-center"><b>Mars Hemispheres</b></h2>
+            </div>
+            {% for hemisphere in mars.image_urls %}
+            <div class="col-md-6">
+                <div class="thumbnail">
+                    <img src="{{mars.image_urls}}">
+                    <div class="caption">
+                        <h3><b>{{mars.title}}</b></h3>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <hr>
     </div>
-
-    <!-- Craigslist Listings -->
-    <div class="row" id="craiglist-listings">
-      <div class="col-md-12">
-        <h4 class="heading">{{usgs_json.news_title}} {{usgs_json.news_p}}</h4>
-        <small>{{listings.hood}}</small>
-      </div>
     </div>
-
-  </div>
 </body>
 
 </html>
