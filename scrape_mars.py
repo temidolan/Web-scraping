@@ -47,7 +47,7 @@ def scrape():
     mainurl="https://www.jpl.nasa.gov"
 
     original_image_url= mainurl + featured_image_url
-    usgs_dict["featured_url"] = original_image_url
+    usgs_dict["featured_img_url"] = original_image_url
 
 
 
