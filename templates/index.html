@@ -36,7 +36,7 @@
                 <div class="col-md-8 border">
                     <h3 class=""><u>jpl mars space images- featured image</u></h3>
                     </br>
-                    <img src="{{usgs.featured_img_url}}" alt="Mars Featured Image">
+                    <img src="{{usgs.featured_img_url}}" alt="Featured Image">
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -61,12 +61,12 @@
             <div class="page-header">
                 <h2 class="text-center"><b>Mars Hemispheres</b></h2>
             </div>
-            {% for hemisphere in mars.image_urls %}
+            {% for hemisphere in usgs.image_urls %}
             <div class="col-md-6">
                 <div class="thumbnail">
-                    <img src="{{mars.image_urls}}">
+                    <img src="{{usgs.image_urls}}">
                     <div class="caption">
-                        <h3><b>{{mars.title}}</b></h3>
+                        <h3><b>{{usgs.title}}</b></h3>
                     </div>
                 </div>
                 {% endfor %}
