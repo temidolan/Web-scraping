@@ -1,7 +1,3 @@
-
-
-
-
 # Dependencies
 from bs4 import BeautifulSoup as bs
 from splinter import Browser
@@ -89,12 +85,34 @@ def scrape():
     usgs_dict["html_info"]=html_table
 
 
+    usgs_page = "https://astrogeology.usgs.gov"
+    filepath = os.path.join("../web-scraping-challenge/templates/webusgs.html")
+    with open(filepath) as file:
+        html = file.read()
+# Create a Beautiful Soup object
+    hemi_soup = bs(html, 'html.parser')
 
+    image_list=[]
 
-    # mars_url="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
-    # mars_link="/Users/kumba/Desktop/1usgs.html"
-    # browser.visit(mars_url)
-    # html_mars=browser.html
-    # soup=bs(html_mars, "html.parser")
+    hemi_images = hemi_soup.find_all("div", class_="item")
+    for i in hemi_images:
+        title = i.find("h3").text
+        img_loc1 = i.find("a", class_="itemLink product-item")["href"]
+        browser.visit(usgs_page+img_loc1)
+        img_html = browser.html
+        img_soup = bs(img_html, "html.parser")
+        img_loc2 = usgs_page + img_soup.find("img", class_="thumb")["src"]
+        image_list.append({"title": title, "img_":img_loc1})
+        browser.back()
+    
+    
+    
+    image_list
+    usgs_dict["image_list"]=image_list
+
 
     return usgs_dict
+
+
+
+
