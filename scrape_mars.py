@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup as bs
 from splinter import Browser
 import pandas as pd
 import requests
+from selenium import webdriver
+import os
 
 def init_browser():
     executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
